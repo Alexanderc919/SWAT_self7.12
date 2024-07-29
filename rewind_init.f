@@ -145,7 +145,7 @@
       snoeb = 0.
       snoeb = orig_snoeb
       
-      iceeb = 38.  !!fix_here
+      iceeb = 40.  !!fix_here
       iceeb = orig_iceeb
       
       sno_hru = 0.

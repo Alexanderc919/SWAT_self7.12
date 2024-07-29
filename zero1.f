@@ -264,7 +264,7 @@
       sno_hru = 0.
       snoeb = 0.
       
-      iceeb=38.  !!fix_here
+      iceeb=40.  !!fix_here
       
       sol_actp = 0.
       sol_alb = 0.

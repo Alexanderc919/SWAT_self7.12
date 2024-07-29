@@ -113,7 +113,7 @@
            if (tmxband(ib,j) > sub_CT(ib,isub)) then
               icefac = 0.
               iceleb = 0.
-    icefac = (sub_icefmx(ib,isub) + sub_icefmn(ib,isub)) / 2. + Sin((iida - 81) / 58.09) * (sub_icefmx(ib,isub) - sub_icefmn(ib,isub)) / 2. 
+    icefac = (sub_icefmx(ib,isub) + sub_icefmn(ib,isub)) / 2. + Sin((iida - 81) * 58.09) * (sub_icefmx(ib,isub) - sub_icefmn(ib,isub)) / 2. 
     iceleb = icefac * (((snotmpeb(ib,j) + tmxband(ib,j)) / 2.)  - sub_CT(ib,isub))     
     !&         + Sin((iida - 81) / 58.09) *                              
     !&          (sub_icefmx(ib,isub) - sub_icefmn(ib,isub)) / 2.    !! 365/2pi = 58.09

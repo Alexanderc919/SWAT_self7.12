@@ -144,7 +144,7 @@
               smfac = 0.
               smleb = 0.
               smfac = (sub_smfmx(ib,isub) + sub_smfmn(ib,isub)) / 2. +  
-     &          Sin((iida - 81) / 58.09) *                              
+     &          Sin((iida - 81) * 58.09) *                              
      &          (sub_smfmx(ib,isub) - sub_smfmn(ib,isub)) / 2.    !! 365/2pi = 58.09
               smleb = smfac * (((snotmpeb(ib,j) + tmxband(ib,j)) / 2.)  
      &                                             - sub_smtmp(ib,isub))
@@ -172,7 +172,7 @@
               smfac = 0.
               smleb = 0.
               smfac = (sub_smfmx(ib,isub) + sub_smfmn(ib,isub)) / 2. +  
-     &          Sin((iida - 81) / 58.09) *                              
+     &          Sin((iida - 81) * 58.09) *                              
      &          (sub_smfmx(ib,isub) - sub_smfmn(ib,isub)) / 2.    !! 365/2pi = 58.09
               !!计算融雪时加进降雨带来的能量所产生的的融雪。
               smleb = smfac * (((snotmpeb(ib,j) + tmxband(ib,j)) / 2.)  
@@ -189,7 +189,7 @@
                 snocov = 1.
               endif
               call ICEm2(iceleb,ib)  !!fix_here
-              smleb = smleb * snocov!+iceleb
+              smleb = smleb * snocov +iceleb
               if (smleb < 0.) smleb = 0.
               if (smleb > snoeb(ib,j)) smleb = snoeb(ib,j)
               snoeb(ib,j) = snoeb(ib,j) - smleb
@@ -286,7 +286,7 @@
           smfac = 0.
           snomlt = 0.
           smfac = (sub_smfmx(ib,isub) + sub_smfmn(ib,isub)) / 2. +      
-     &       Sin((iida - 81) / 58.09) *                                 
+     &       Sin((iida - 81) * 58.09) *                                 
      &       (sub_smfmx(ib,isub) - sub_smfmn(ib,isub)) / 2.    !! 365/2pi = 58.09
           snomlt = smfac * (((snotmp(j)+tmx(j))/2.)-sub_smtmp(ib,isub))
 
@@ -298,7 +298,7 @@
           else
             snocov = 1.
           endif
-          snomlt = snomlt * snocov+iceleb
+          snomlt = snomlt * snocov +iceleb
           if (snomlt < 0.) snomlt = 0.
           if (snomlt > sno_hru(j)) snomlt = sno_hru(j)
           sno_hru(j) = sno_hru(j) - snomlt
@@ -319,7 +319,7 @@
           smfac = 0.
           snomlt = 0.
           smfac = (sub_smfmx(ib,isub) + sub_smfmn(ib,isub)) / 2. +      
-     &       Sin((iida - 81) / 58.09) *                                 
+     &       Sin((iida - 81) * 58.09) *                                 
      &       (sub_smfmx(ib,isub) - sub_smfmn(ib,isub)) / 2.    !! 365/2pi = 58.09
           !!计算融雪时加进降雨带来的能量所产生的的融雪。
           snomlt = smfac * (((snotmp(j)+tmx(j))/2.)-sub_smtmp(ib,isub))+  
@@ -333,11 +333,11 @@
           else
             snocov = 1.
           endif
-          snomlt = snomlt * snocov!+iceleb
+          snomlt = snomlt * snocov +iceleb
           
           
           
-          snom_hru(2)=snom_hru(2)+(smleb-iceleb) * elevb_fr(ib,isub)!融雪
+          snom_hru(2)=snom_hru(2)+smleb * elevb_fr(ib,isub)!融雪
           snom_hru(3)=snom_hru(3)+iceleb * elevb_fr(ib,isub)!融冰
           
           
